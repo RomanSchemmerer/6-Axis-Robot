@@ -1,0 +1,49 @@
+int stepCounter;
+int steps = 300;
+int E= 42;  // 51 - 36 - 39 - 42 -
+int D= 43;  // 52 - 37 - 40 - 43 -
+int S= 44;  // 53 - 38 - 41 - 44 -
+int x = 2000; // Microdelay
+int y = 3000; // Time between loops
+int z = 10; // delay 
+
+void setup(){
+  pinMode(E, OUTPUT); // Enable 1:51
+  pinMode(D, OUTPUT); // Direction 1:52
+  pinMode(S, OUTPUT); // Step 1:53
+ 
+  
+  digitalWrite(E,LOW);
+  digitalWrite(D,HIGH); // HIGH = clockwise
+  
+  for(stepCounter = 0; stepCounter < steps; stepCounter++){
+    digitalWrite(E,LOW);
+    digitalWrite(S,HIGH);
+    delayMicroseconds(x);
+    
+    digitalWrite(S,LOW);
+    delayMicroseconds(x);
+  delay(z);
+    digitalWrite(E,HIGH);
+  }
+  //delay(y);
+   
+  
+  digitalWrite(E,LOW);
+  digitalWrite(D,LOW); // Clockwise
+  
+  for(stepCounter = 0; stepCounter < steps; stepCounter++){
+    digitalWrite(E,LOW);
+    digitalWrite(S,HIGH);
+    delayMicroseconds(x);
+    
+    digitalWrite(S,LOW);
+    delayMicroseconds(x);
+  delay(z);
+    digitalWrite(E,HIGH);
+  }
+  //delay(y);
+}
+void loop()
+{
+}
